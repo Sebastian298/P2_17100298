@@ -1,0 +1,232 @@
+= Resumen primer parcial.
+:icons: font
+
+== *Modelo de cajas*.
+El modelo de cajas es el comportamiento de CSS que hace que todos los elementos de las páginas se representen mediante cajas. +
+[#img-sunset]
+.Modelo de cajas
+[link=https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/modelo-caja-css-t1.jpg]
+image::https://s3-us-west-2.amazonaws.com/devcodepro/media/tutorials/modelo-caja-css-t1.jpg[Sunset,300,200]
+Las cajas de una página se crean automáticamente. Cada vez que se inserta una etiqueta HTML, se crea una nueva caja rectangular que encierra los contenidos de ese elemento. +
+
+IMPORTANT: Las partes que componen cada caja y su orden de visualización desde el punto de vista del usuario son las siguientes: 
+ 
+*Content*: se trata del contenido HTML del elemento (las palabras de un párrafo, una imagen, el texto de una lista de elementos, etc.) +
+
+
+*Padding*: espacio libre opcional existente entre el contenido y el borde. +
+
+*Margin*: Son aquellos espacios que hay entre los bordes del elemento en cuestión y los elementos externos +
+
+IMPORTANT: *Padding* son los espacios que hay entre los bordes del elemento en cuestión y el contenido del elemento. Mientras que el *Margin* son los espacios que hay entre los bordes del elemento en cuestión y sus elementos adyacentes. A veces se suele confundir mucho teoricamente y practicamente es por eso que es necesario recalcarlo.  
+  
+*Outline*: La propiedad CSS outline es una forma reducida para establecer una o más de las propiedades individuales de contorno outline-style, outline-width y outline-color en una sola declaración. En la mayoría de los casos el uso de este atajo es preferible y más conveniente. +
+
+== Propiedades *Display*, *Box-Sizing* +
+
+Establece el tipo de caja generada por un elemento. Es una de las propiedades CSS más utilizadas en sitios web. Aunque todos los desarrolladores conocen esta propiedad y utilizan sus valores inline, block y none, las posibilidades de display son mucho más avanzadas y aplicadas en la hoja de estilos. +
+
+*Display Block*: Hace que el compartamiento en el flujo sea como un bloque. +
+
+*Display Inline-Block*: El elemento tendrá un comportamiento mezcla entre los dos anteriores, que ahora voy a describir. +
+
+*Display Inline*: El elemento se renderizará en línea con otros elementos. +
+
+*Display-none*: Se usa comúnmente con JavaScript para *ocultar y mostrar elementos sin eliminarlos ni recrearlos*. +
+
+=== Box-Sizing. +
+
+*Content-Box*: Es el comportamiento para el tamaño de la caja (box-sizing). No toma en cuenta las medidas padding y margin de los contenedores solo su ancho +
+
+*Border-Box*: Este comportamiento toma el cuenta las medidad en px del padding y margin para los contenedores, junto con su ancho. +
+
+== Flujo del documento. +
+
+Es el modo en el que se van colocando los componentes de la página, a partir de cómo aparecen en el código HTML y los atributos CSS de los elementos. +
+
+== Tipos de posicionamiento. +
+
+*Static*: Cada elemento tiene una posición estática de forma predeterminada, por lo que el elemento se pegará al flujo de página normal. +
+
+*Relative*: La posición original de un elemento permanece en el flujo del documento, al igual que el valor. +
+
+*Absolute*: El elemento se elimina del flujo del documento y otros elementos se comportarán como si no estuviera ni siquiera allí. +
+
+*Fixed*: El elemento se elimina del flujo del documento como elementos con posición absoluta.
+
+*Sticky*: El elemento se posiciona de acuerdo con el flujo normal del documento para ser desplazado en relación a su contenedor padre. +
+
+== Unidades de medida.+
+
+.Absolutas
+* In(Pulgadas) +
+* Cm(Centimetros) +
+* mm(Milimetros) +
+* pt(Puntos) + 
+* pc(Picas) +
+
+.Relativas 
+* em. Su tamaño de fuente es referenciado a su contenedor padre. +
+
+* rem. Su tamaño de fuente es referenciado a la raiz(navegador). +
+
+* Porcentaje(%). Valor proporcional que se le asigna al elemento. +
+
+*Px. Relativa al tamaño del elemento. +
+
+
+== Selectores.
+
+*Básicos* +
+
+tag. + 
+Aplica estilos directamente a un elemento. +
+Ejemplo.
+[source,html]
+<p style="color:red">Hola Mundo</p> +
+
+Id. Aplica estilos a un elemento mediante un "Id#" ya sea desde un archivo externo, en el head o directamente en las herramientas de desarrollo. +
+Ejemplo.
+[source,CSS]
+#id{
+    color : red;
+} 
+
+[source,html]
+<div id="id"><p>Hola Mundo</p></div> 
+
+Clase. Aplica estilos a un elemento mediante una clase ".class" ya sea desde un archivo externo, el head o las herramientas de desarrollo. +
+
+Ejemplo.
+[source,HTML]
+<head>
+<style>
+.class{ color:blue;}
+</style>
+</head> 
+<body>
+<div class="class">
+<h1>Hola Mundo</h1>
+</div 
+</body> 
+
+Relación. +
+
+Espacio. +
+Aplica estilos al descendiente de un elemento. +
+
+Ejemplo. +
+[source,CSS]
+div h1{ 
+    color:blue;
+    font-size:10px
+} 
+
+">" Hijo directo. Aplica estilos al hijo directo de un elemento. +
+
+Ejemplo.
+[source,CSS]
+div > h1{ 
+    color:red;
+} 
+
+[source,HTML]
+<div>
+<h1>Hola Mundo</h1> /*Aqui aplicaria el estilo
+</div> 
+
++ Hermano Adyacente. Aplica estilos al hermano adyacente de un elemento. +
+
+Ejemplo. +
+
+[source,CSS]
+h1 + p{
+    color:blue;
+}
+
+[source,HTML]
+<p>Hola Mundo</p>
+<h1>Bienvenido</h1>
+<p>Hola mundo</p> /*Aqui aplicaria el estilo
+
+~ Hermano General. Aplica estilos al hermano general de un elemento +
+
+Ejemplo. +
+
+[source,CSS]
+p ~ h2{
+    color:red;
+}
+
+[source,HTML]
+<h2>Bienvenido</h2>
+<p>Hola Mundo</p>
+<div>
+<h2>Bienvenido</h2>
+</div>
+<h2>Bienvenido</h2> /*Aqui aplicaria el estilo 
+
+== PseudoSelectores. +
+hacen referencia a partes del documento que dependen del contexto. +
+
+Ejemplos. +
+first-line. Aplicara el estilo a la primera línea de texto incluida del elemento. +
+
+[source,CSS]
+p:first-line{
+    color:red;
+}
+
+first-letter. Aplicara el estilo a la primera letra de texto de un elemento. +
+Ejemplo +
+
+[source,CSS]
+p:first-letter{
+    color: green;
+}
+
+before. Inserta contenido antes del elemento seleccionado. +
+Ejemplo. +
+[source,CSS]
+p:before{
+    content:"Principio"
+}
+
+after. Inserta contenido despues del elemento seleccionado. +
+Ejemplo. +
+[source,CSS]
+p:after{
+    content:"Fin";
+}
+
+Pseudo-Clase.
+Puede aplicar estilos cuando ocurra un estado que puede tener un elemento seleccionado. +
+
+Pseudo-Elemento. Puede aplicar estilos a una parte concreta del elemento. 
+
+== La cascada. +
+
+Se encarga en determinar la prioridad de los estilos a los elementos. +
+
+*Niveles*. +
+Importancia. Se refiere a donde se definen los estilos que se aplicaran en el documento html. +
+
+*Especificidad*. +
+Se refiere a que tan especifico puede estar un estilo a un elemento. +
+
+*Orden*. +
+Se refiere al orden que se tiene en declarar los estilos. +
+
+=== Como calcular la especificidad. +
+
+Como mencione anteriormente se refiere a que tan especifico es el selector, para ello se toman ciertas consideraciones. +
+
+<tag>: 1000pts +
+#id  : 100pts +
+clase: 10pts +
+elemento: 1pt +
+* :       0pts +
+
+Tomando en cuenta estas especificaciones y los demas criterios de desempate se puede dar a entender que selector pueda aplicar un estilo si hay más de uno referenciado al mismo elemento. +
+
+
