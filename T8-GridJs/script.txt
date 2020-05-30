@@ -1,0 +1,14 @@
+CREATE DATABASE Tarea_8
+
+CREATE TABLE Empleados(
+Id int(10) PRIMARY KEY AUTO_INCREMENT,
+Nombre VARCHAR(25) NOT NULL,
+Apellido_Paterno VARCHAR(20) NOT NULL,
+Apellido_Materno VARCHAR(20) NOT NULL
+)
+
+INSERT INTO `empleados`(`Nombre`, `Apellido_Paterno`, `Apellido_Materno`) VALUES ('Jaime','Tenorio','Rios');
+
+INSERT INTO `empleados`(`Nombre`, `Apellido_Paterno`, `Apellido_Materno`) VALUES ('Jose Luis','Anguiano','Lopez');
+
+INSERT INTO `empleados`(`Nombre`, `Apellido_Paterno`, `Apellido_Materno`) VALUES ('Jaime Andres','Cortina','Rangel');
